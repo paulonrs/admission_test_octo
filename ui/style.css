@@ -1,0 +1,17 @@
+b {
+  color: red;
+}
+.linha {
+  border: none;
+  border-top-color: #002a95;
+  border-top-style: solid;
+  border-top-width: 3px;
+}
+
+div.linhaAlterar .colunaSalvar,
+div.linhaSalvar .colunaAlterar,
+div.PrimeiroItem .colunaSalvar,
+div.PrimeiroItem .colunaAlterar,
+#dialog.cadastro .btn-danger {
+  display: none;
+}
