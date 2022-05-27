@@ -1,0 +1,34 @@
+CREATE DATABASE bd_sistema;
+
+CREATE TABLE bd_sistema.tt_pessoa(
+    codigo int primary key AUTO_INCREMENT not null,
+    nome varchar(80) not null,
+    tipo varchar(1) not null,
+    cpf_cnpj varchar(14) not null,
+    rg_incricao varchar(11) not null,
+    email varchar(80) not null,
+    data_nasc_fundacao DATETIME not null,
+    data_cad DATETIME not null DEFAULT now()
+);
+
+CREATE TABLE bd_sistema.tt_telefone(
+    codigo int primary key AUTO_INCREMENT not null,
+    tipo varchar(20) not null,
+    ddd varchar(4) not null,
+    numero varchar(10) not null,
+    observacoes varchar(80) null,
+    codigoPessoa int not null,
+    CONSTRAINT fk_codigo_pessoa_telefone FOREIGN KEY (codigoPessoa) REFERENCES tt_pessoa (codigo)
+);
+
+CREATE TABLE bd_sistema.tt_endereco(
+    codigo int primary key AUTO_INCREMENT not null,
+    tipo varchar(20) not null,
+    logradouro varchar(40) not null,
+    numero varchar(40) not null,
+    complemento varchar(40) not null,
+    bairro varchar(40) not null,
+    cidade varchar(40) not null,
+    uf varchar(2) not null,
+    cep varchar(10) not null
+)
